@@ -1,0 +1,293 @@
+@use "./base";
+
+.hidden {
+    display: none !important;
+}
+
+.light-background {
+    background-color: base.$secondary-color;
+    color: base.$main-color;
+}
+
+.dark-background {
+    background-color: base.$main-color;
+    color: base.$secondary-color;
+}
+
+body {
+    background: base.$main-color;
+    color: base.$secondary-color;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+}
+
+.selected {
+    background-color: base.$main-color;
+    color: base.$secondary-color;
+}
+
+#menu-page {
+    @include base.flexCenter;
+    height: 100vh;
+
+    .main-title {
+        text-align: center;
+        margin: 24px 0;
+        font-size: calc(18px + 0.4vw);
+    }
+
+    #menu {
+        background-color: base.$secondary-color;
+        color: base.$main-color;
+        border-radius: 12px;
+        width: clamp(240px, 50vw, 420px);
+        padding: min(24px + 0.2vw, 32px);
+
+        .selection {
+            margin: 12px 0;
+
+            .title {
+                margin: 12px 0;
+                text-align: start;
+            }
+
+            .inner-wrap {
+                display: flex;
+                width: 100%;
+                gap: 6%;
+                
+                & > * {
+                    background-color: base.$primary-color;
+                    color: base.$secondary-color;
+                    width: 45%;
+                    transition-duration: 200;
+                    transition-property: background-color, color;
+
+                    &:hover {
+                        opacity: 0.9;
+                    }
+                }
+
+                .active-selection {
+                    background-color: base.$main-color;
+                    color: base.$secondary-color;
+                }
+            }
+        }
+    }
+
+    #start-button {
+        width: calc(100% - 16px);
+        margin: auto;
+        background-color: base.$third-color;
+        color: base.$secondary-color;
+        margin: 24px 0;
+        transition-property: background-color, color;
+        transition-duration: 200ms;
+
+        &:hover {
+            background-color: base.$secondary-color;
+            color: base.$third-color;
+        }
+    }
+
+    .btn {
+        text-align: center;
+        padding: 8px;
+        border-radius: 16px;
+        font-weight: 600;
+        font-size: calc(20px + 0.4vw);
+        cursor: pointer;
+    }
+}
+
+#game {
+    background-color: base.$secondary-color;
+    color: base.$main-color;
+    width: 100%;
+    height: 100%;
+    
+    nav {
+        width: 100%;
+        min-height: 60px;
+        padding-bottom: 16px;
+    
+        .inner-wrap {
+            width: clamp(240px, 80%, 1320px);
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .logo {
+                @include base.mobile {
+                    margin: 8px 0;
+                }
+            }
+
+            @include base.mobile {
+                flex-direction: column;
+            }
+    
+            .links {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                display: flex;
+                gap: 12px;
+    
+                li {
+                    background-color: base.$main-color;
+                    color: base.$secondary-color;
+                    padding: 8px 16px;
+                    border-radius: 12px;
+                    transition-duration: 200ms;
+                    transition-property: opacity;
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 0.75;
+                    }
+                }
+    
+                li:nth-child(odd) {
+                    background-color: base.$third-color;
+
+                    &:hover {
+                        opacity: 0.75;
+                    }
+                }
+            }
+        }
+    }
+    
+    main {
+        #game-cards-wrap {
+            width: clamp(300px, 100%, 100vh - 200px);
+            padding-top: clamp(300px, 100%, 100vh - 200px);
+            position: relative;
+            margin: auto;
+
+            #game-cards {
+                padding: 0 12px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: grid;
+                width: calc(100% - 24px);
+
+                .card {
+                    width: 100%;
+                    padding-top: 100%;
+                    background-color: base.$main-color;
+                    border-radius: 50%;
+                    position: relative;
+    
+                    .icon {
+                        @include base.posCenter;
+                        color: base.$secondary-color;
+                        font-size: 300% !important;
+                    }
+                }
+            }
+
+        }
+        
+        #game-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 24px 0;
+            
+            .card {
+                width: 100px;
+                background-color: base.$primary-color;
+                border-radius: 12px;
+                text-align: center;
+                font-size: calc(18px + 0.4vw);
+                padding: 12px;
+                
+                & > * {
+                    margin: 0;
+                }
+
+            }
+        }
+        
+        .grid4x4 {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            column-gap: 4%;
+            row-gap: 4%;
+        }
+        .grid6x6 {
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            column-gap: 2%;
+            row-gap: 2%;
+        }
+    }
+}
+
+#pop-up {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(120, 120, 120, 0.4);
+    @include base.flexCenter;
+
+    .inner-wrap {
+        border-radius: 12px;
+        width: clamp(240px, 50vw, 420px);
+        padding: min(24px + 0.2vw, 32px);
+        background-color: base.$secondary-color;
+        color: base.$main-color;
+        font-size: 1.2em;
+
+        #pop-up-title {
+            text-align: center;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: auto;
+            max-width: 200px;
+        }
+
+        .links {
+            padding: 0;
+            margin: 12px 0;
+            list-style: none;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+
+            li {
+                background-color: base.$main-color;
+                color: base.$secondary-color;
+                padding: 8px 16px;
+                border-radius: 12px;
+                transition-duration: 200ms;
+                transition-property: opacity;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.75;
+                }
+            }
+
+            li:nth-child(odd) {
+                background-color: base.$third-color;
+
+                &:hover {
+                    opacity: 0.75;
+                }
+            }
+        }
+    }
+}

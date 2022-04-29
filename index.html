@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory game</title>
+    <script src="https://kit.fontawesome.com/4d30a75c6b.js" crossorigin="anonymous"></script>    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <main id="menu-page">
+        <section class="section">
+            <div class="main-title">
+                <h1>
+                    Memory
+                </h1>
+            </div>
+            <div id="menu">
+                <div class="selection" id="theme-selection">
+                    <h3 class="title">
+                        select theme
+                    </h3>
+                    <div class="inner-wrap">
+                        <div class="numbers btn" value='numbers'>
+                            Numbers
+                        </div>
+                        <div class="icons btn" value='icons'>
+                            Icons
+                        </div>
+                    </div>
+                </div>
+                <div class="selection" id="grid-selection">
+                    <h3 class="title">
+                        select grid
+                    </h3>
+                    <div class="inner-wrap">
+                        <div class="grid4x4 btn" value='4x4'>
+                            4x4
+                        </div>
+                        <div class="grid6x6 btn" value='6x6'>
+                            6x6
+                        </div>
+                    </div>
+                </div>
+                <div id="start-button" class="btn">Start Game</div>
+            </div>
+        </section>
+    </main>
+    <div id="game" style="display:none;">
+        <nav>
+            <div class="inner-wrap">
+                <h1 class="logo">
+                    Memory
+                </h1>
+                <ul class="links">
+                    <li id="new-game-button">New Game</li>
+                    <li id="reset-button">Restart</li>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <div id="game-cards-wrap">
+                <div id="game-cards">
+                </div>
+            </div>
+            <div id="game-info">
+                <div class="card" id="game-time">
+                    <h3 class="title">Time</h3>
+                    <p class="data">00:00</p>
+                </div>
+                <div class="card" id="game-moves">
+                    <h3 class="title">Moves</h3>
+                    <p class="data">0</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="pop-up" class="hidden">
+        <div class="inner-wrap">
+            <h2 id="pop-up-title">
+                you won!!
+            </h2>
+            <div class="game-info">
+                <div class="card" id="time-info">
+                    <h3 class="title">
+                        Time:
+                    </h3>
+                    <p class="data">
+                    </p>
+                </div>
+                <div class="card" id="moves-info">
+                    <h3 class="title">
+                        Moves:
+                    </h3>
+                    <p class="data">
+
+                    </p>
+                </div>
+                <ul class="links">
+                    <li id="new-game-button-popupbox">New Game</li>
+                    <li id="restart-button-popupbox">Restart</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/app.js"></script>
+</html>

@@ -1,0 +1,262 @@
+.hidden {
+  display: none !important;
+}
+
+.light-background {
+  background-color: #fcfcfc;
+  color: #162938;
+}
+
+.dark-background {
+  background-color: #162938;
+  color: #fcfcfc;
+}
+
+body {
+  background: #162938;
+  color: #fcfcfc;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+.selected {
+  background-color: #162938;
+  color: #fcfcfc;
+}
+
+#menu-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+#menu-page .main-title {
+  text-align: center;
+  margin: 24px 0;
+  font-size: calc(18px + 0.4vw);
+}
+#menu-page #menu {
+  background-color: #fcfcfc;
+  color: #162938;
+  border-radius: 12px;
+  width: clamp(240px, 50vw, 420px);
+  padding: min(24px + 0.2vw, 32px);
+}
+#menu-page #menu .selection {
+  margin: 12px 0;
+}
+#menu-page #menu .selection .title {
+  margin: 12px 0;
+  text-align: start;
+}
+#menu-page #menu .selection .inner-wrap {
+  display: flex;
+  width: 100%;
+  gap: 6%;
+}
+#menu-page #menu .selection .inner-wrap > * {
+  background-color: #bcceda;
+  color: #fcfcfc;
+  width: 45%;
+  transition-duration: 200;
+  transition-property: background-color, color;
+}
+#menu-page #menu .selection .inner-wrap > *:hover {
+  opacity: 0.9;
+}
+#menu-page #menu .selection .inner-wrap .active-selection {
+  background-color: #162938;
+  color: #fcfcfc;
+}
+#menu-page #start-button {
+  width: calc(100% - 16px);
+  margin: auto;
+  background-color: #fda215;
+  color: #fcfcfc;
+  margin: 24px 0;
+  transition-property: background-color, color;
+  transition-duration: 200ms;
+}
+#menu-page #start-button:hover {
+  background-color: #fcfcfc;
+  color: #fda215;
+}
+#menu-page .btn {
+  text-align: center;
+  padding: 8px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: calc(20px + 0.4vw);
+  cursor: pointer;
+}
+
+#game {
+  background-color: #fcfcfc;
+  color: #162938;
+  width: 100%;
+  height: 100%;
+}
+#game nav {
+  width: 100%;
+  min-height: 60px;
+  padding-bottom: 16px;
+}
+#game nav .inner-wrap {
+  width: clamp(240px, 80%, 1320px);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 420px) {
+  #game nav .inner-wrap .logo {
+    margin: 8px 0;
+  }
+}
+@media (max-width: 420px) {
+  #game nav .inner-wrap {
+    flex-direction: column;
+  }
+}
+#game nav .inner-wrap .links {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 12px;
+}
+#game nav .inner-wrap .links li {
+  background-color: #162938;
+  color: #fcfcfc;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition-duration: 200ms;
+  transition-property: opacity;
+  cursor: pointer;
+}
+#game nav .inner-wrap .links li:hover {
+  opacity: 0.75;
+}
+#game nav .inner-wrap .links li:nth-child(odd) {
+  background-color: #fda215;
+}
+#game nav .inner-wrap .links li:nth-child(odd):hover {
+  opacity: 0.75;
+}
+#game main #game-cards-wrap {
+  width: clamp(300px, 100%, 100vh - 200px);
+  padding-top: clamp(300px, 100%, 100vh - 200px);
+  position: relative;
+  margin: auto;
+}
+#game main #game-cards-wrap #game-cards {
+  padding: 0 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  width: calc(100% - 24px);
+}
+#game main #game-cards-wrap #game-cards .card {
+  width: 100%;
+  padding-top: 100%;
+  background-color: #162938;
+  border-radius: 50%;
+  position: relative;
+}
+#game main #game-cards-wrap #game-cards .card .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fcfcfc;
+  font-size: 300% !important;
+}
+#game main #game-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px 0;
+}
+#game main #game-info .card {
+  width: 100px;
+  background-color: #bcceda;
+  border-radius: 12px;
+  text-align: center;
+  font-size: calc(18px + 0.4vw);
+  padding: 12px;
+}
+#game main #game-info .card > * {
+  margin: 0;
+}
+#game main .grid4x4 {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  column-gap: 4%;
+  row-gap: 4%;
+}
+#game main .grid6x6 {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  column-gap: 2%;
+  row-gap: 2%;
+}
+
+#pop-up {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(120, 120, 120, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#pop-up .inner-wrap {
+  border-radius: 12px;
+  width: clamp(240px, 50vw, 420px);
+  padding: min(24px + 0.2vw, 32px);
+  background-color: #fcfcfc;
+  color: #162938;
+  font-size: 1.2em;
+}
+#pop-up .inner-wrap #pop-up-title {
+  text-align: center;
+}
+#pop-up .inner-wrap .card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  max-width: 200px;
+}
+#pop-up .inner-wrap .links {
+  padding: 0;
+  margin: 12px 0;
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+#pop-up .inner-wrap .links li {
+  background-color: #162938;
+  color: #fcfcfc;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition-duration: 200ms;
+  transition-property: opacity;
+  cursor: pointer;
+}
+#pop-up .inner-wrap .links li:hover {
+  opacity: 0.75;
+}
+#pop-up .inner-wrap .links li:nth-child(odd) {
+  background-color: #fda215;
+}
+#pop-up .inner-wrap .links li:nth-child(odd):hover {
+  opacity: 0.75;
+}
+
+/*# sourceMappingURL=index.css.map */

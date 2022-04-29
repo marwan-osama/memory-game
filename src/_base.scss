@@ -1,0 +1,33 @@
+$main-color: rgb(22, 41, 56);
+$primary-color: rgb(188, 206, 218);
+$secondary-color: rgb(252, 252, 252);
+$third-color: rgb(253, 162, 21);
+
+$mobile: 420px;
+$tablet: 768px;
+
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin posCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+@mixin mobile {
+    @media (max-width:$mobile) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width:$tablet) {
+        @content;
+    }
+}
